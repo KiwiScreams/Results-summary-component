@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --light-blue: #7857ff;
+  --blue: #2e2be9;
+  --bluealfa1:  #4e21ca00;
+  --bluealfa0: #4e21ca;
+}
+body {
+  height: 100%;
+}
+.container {
+  width: 736px;
+}
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+.result {
+  background: linear-gradient(to bottom, var(--light-blue), var(--blue));
+  width: 50%;
+  border-radius: 25px;
+}
+.circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: linear-gradient(to bottom, var(--bluealfa1), var(--bluealfa0));
+}
+.sumary {
+  width: 50%;
+  border-right: 25px;
+}
+.row {
+  border-radius: 10px;
+  padding: 5px;
+}
