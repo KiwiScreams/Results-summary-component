@@ -9,18 +9,29 @@ function App() {
   const [targetValue, setTargetValue] = useState(
     Math.floor(Math.random() * 100) + 1
   );
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setValue((prevValue) => {
-        if (prevValue < targetValue) {
-          return prevValue + 1;
-        }
-        return prevValue;
-      });
-    }, 10);
+  const [animationStarted, setAnimationStarted] = useState(false);
 
+  useEffect(() => {
+    let intervalId;
+    if (animationStarted) {
+      intervalId = setInterval(() => {
+        setValue((prevValue) => {
+          if (prevValue < targetValue) {
+            return prevValue + 1;
+          }
+          return prevValue;
+        });
+      }, 10);
+    }
     return () => clearInterval(intervalId);
-  }, [targetValue]);
+  }, [animationStarted, targetValue]);
+
+  const handleButtonClick = () => {
+    setValue(0);
+    setTargetValue(Math.floor(Math.random() * 100) + 1);
+    setAnimationStarted(true);
+  };
+
   return (
     <>
       <div className="container flex">
@@ -86,7 +97,9 @@ function App() {
               </div>
             </div>
           </div>
-          <button className="btn">Continue</button>
+          <button className="btn" onClick={handleButtonClick}>
+            Continue
+          </button>
         </section>
       </div>
     </>
