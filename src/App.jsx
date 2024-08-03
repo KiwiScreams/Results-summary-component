@@ -16,6 +16,8 @@ function App() {
     Math.floor(Math.random() * 100) + 1,
     Math.floor(Math.random() * 100) + 1,
   ]);
+  const [displayNumbers, setDisplayNumbers] = useState([0, 0, 0, 0]);
+  const [meanValue, setMeanValue] = useState(0);
 
   useEffect(() => {
     let intervalId;
@@ -27,10 +29,23 @@ function App() {
           }
           return prevValue;
         });
+        setDisplayNumbers((prevNumbers) => {
+          return prevNumbers.map((num, index) => {
+            if (num < randomNumbers[index]) {
+              return num + 1;
+            }
+            return num;
+          });
+        });
+        setMeanValue((prevMean) => {
+          const sum = displayNumbers.reduce((a, b) => a + b, 0);
+          return Math.round(sum / displayNumbers.length);
+        });
       }, 10);
     }
     return () => clearInterval(intervalId);
-  }, [animationStarted, targetValue]);
+  }, [animationStarted, targetValue, randomNumbers, displayNumbers]);
+
   useEffect(() => {
     handleButtonClick();
   }, []);
@@ -45,10 +60,8 @@ function App() {
       Math.floor(Math.random() * 100) + 1,
       Math.floor(Math.random() * 100) + 1,
     ]);
+    setDisplayNumbers([0, 0, 0, 0]);
   };
-
-  const sum = randomNumbers.reduce((a, b) => a + b, 0);
-  const mean = sum / randomNumbers.length;
 
   return (
     <>
@@ -57,7 +70,7 @@ function App() {
           <h3>Your result</h3>
           <div className="circle">
             <div className="circle-box">
-              <p>{Math.round(mean)}</p>
+              <p>{meanValue}</p>
               <p>of 100</p>
             </div>
           </div>
