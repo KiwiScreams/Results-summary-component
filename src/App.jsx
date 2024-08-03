@@ -2,8 +2,25 @@ import image_1 from "./assets/images/icon-reaction.svg";
 import image_2 from "./assets/images/icon-memory.svg";
 import image_3 from "./assets/images/icon-verbal.svg";
 import image_4 from "./assets/images/icon-visual.svg";
+import { useState, useEffect } from "react";
 
 function App() {
+  const [value, setValue] = useState(0);
+  const [targetValue, setTargetValue] = useState(
+    Math.floor(Math.random() * 100) + 1
+  );
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setValue((prevValue) => {
+        if (prevValue < targetValue) {
+          return prevValue + 1;
+        }
+        return prevValue;
+      });
+    }, 10);
+
+    return () => clearInterval(intervalId);
+  }, [targetValue]);
   return (
     <>
       <div className="container flex">
@@ -11,7 +28,7 @@ function App() {
           <h3>Your result</h3>
           <div className="circle">
             <div className="circle-box">
-              <p>0</p>
+              <p>{value}</p>
               <p>of 100</p>
             </div>
           </div>
