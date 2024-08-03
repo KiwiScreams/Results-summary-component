@@ -20,7 +20,7 @@
   --yellow-clr: #ffb21e;
   --green-clr: #00bb8f;
   --blue-clr: #1125d6;
-  --dark-navy: #303B59;
+  --dark-navy: #303b59;
   --font-weight-700: 700;
   --font-weight-800: 800;
   --font-weight-500: 500;
@@ -176,4 +176,25 @@ button {
 }
 button:hover {
   background: linear-gradient(to bottom, #7755ff, #6943ff, #2f2ce9);
+}
+@media screen and (max-width: 742px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 154px;
+  }
+  .summary {
+    width: 100%;
+  }
+  .result {
+    width: 100%;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+}
+@media screen and (max-width: 426px) {
+  .summary {
+    padding: 30px;
+  }
 }
