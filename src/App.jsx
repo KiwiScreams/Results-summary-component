@@ -10,6 +10,12 @@ function App() {
     Math.floor(Math.random() * 100) + 1
   );
   const [animationStarted, setAnimationStarted] = useState(false);
+  const [randomNumbers, setRandomNumbers] = useState([
+    Math.floor(Math.random() * 100) + 1,
+    Math.floor(Math.random() * 100) + 1,
+    Math.floor(Math.random() * 100) + 1,
+    Math.floor(Math.random() * 100) + 1,
+  ]);
 
   useEffect(() => {
     let intervalId;
@@ -25,12 +31,24 @@ function App() {
     }
     return () => clearInterval(intervalId);
   }, [animationStarted, targetValue]);
+  useEffect(() => {
+    handleButtonClick();
+  }, []);
 
   const handleButtonClick = () => {
     setValue(0);
     setTargetValue(Math.floor(Math.random() * 100) + 1);
     setAnimationStarted(true);
+    setRandomNumbers([
+      Math.floor(Math.random() * 100) + 1,
+      Math.floor(Math.random() * 100) + 1,
+      Math.floor(Math.random() * 100) + 1,
+      Math.floor(Math.random() * 100) + 1,
+    ]);
   };
+
+  const sum = randomNumbers.reduce((a, b) => a + b, 0);
+  const mean = sum / randomNumbers.length;
 
   return (
     <>
@@ -39,7 +57,7 @@ function App() {
           <h3>Your result</h3>
           <div className="circle">
             <div className="circle-box">
-              <p>{value}</p>
+              <p>{Math.round(mean)}</p>
               <p>of 100</p>
             </div>
           </div>
@@ -59,7 +77,7 @@ function App() {
               </div>
               <div className="right-cont">
                 <p>
-                  <b>80</b>/ 100
+                  <b>{randomNumbers[0]}</b>/ 100
                 </p>
               </div>
             </div>
@@ -70,7 +88,7 @@ function App() {
               </div>
               <div className="right-cont">
                 <p>
-                  <b>92</b>/ 100
+                  <b>{randomNumbers[1]}</b>/ 100
                 </p>
               </div>
             </div>
@@ -81,7 +99,7 @@ function App() {
               </div>
               <div className="right-cont">
                 <p>
-                  <b>63</b>/ 100
+                  <b>{randomNumbers[2]}</b>/ 100
                 </p>
               </div>
             </div>
@@ -92,7 +110,7 @@ function App() {
               </div>
               <div className="right-cont">
                 <p>
-                  <b>73</b>/ 100
+                  <b>{randomNumbers[3]}</b>/ 100
                 </p>
               </div>
             </div>
