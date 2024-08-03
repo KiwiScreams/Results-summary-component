@@ -16,6 +16,15 @@
   --background-clr: #ecf2ff;
   --white-clr: #fff;
   --black-clr: #000;
+  --red-clr: #ff5555;
+  --yellow-clr: #ffb21e;
+  --green-clr: #00bb8f;
+  --blue-clr: #1125d6;
+  --dark-navy: #303B59;
+  --font-weight-700: 700;
+  --font-weight-800: 800;
+  --font-weight-500: 500;
+  --font-weight-400: 400;
 }
 body {
   height: 100%;
@@ -61,7 +70,7 @@ body {
 }
 .circle p:nth-child(1) {
   color: var(--white-clr);
-  font-weight: 800;
+  font-weight: var(--font-weight-800);
   font-size: 72px;
   display: block;
 }
@@ -73,7 +82,7 @@ body {
 .container h3 {
   color: #cac9ff;
   font-size: 24px;
-  font-weight: 700;
+  font-weight: var(--font-weight-700);
 }
 .container .summary h3 {
   color: var(--black-clr);
@@ -87,9 +96,9 @@ body {
 }
 .container p.text {
   color: #cac9ff;
-  font-weight: 18px;
+  font-size: 18px;
   line-height: 24px;
-  font-weight: 500;
+  font-weight: var(--font-weight-500);
 }
 .summary {
   width: 50%;
@@ -107,13 +116,13 @@ body {
 }
 .row .right-cont p {
   color: gray;
-  font-weight: 700;
+  font-weight: var(--font-weight-700);
   font-size: 18px;
 }
 .row .right-cont b {
   color: #303b59;
   font-size: 18px;
-  font-weight: 700;
+  font-weight: var(--font-weight-700);
   margin-right: 8px;
 }
 .row .left-cont,
@@ -129,31 +138,31 @@ body {
 }
 .row .left-cont b {
   font-size: 18px;
-  font-weight: 500;
+  font-weight: var(--font-weight-500);
 }
 .row .icon-1 {
-  color: #ff5555;
+  color: var(--red-clr);
 }
 .row .icon-2 {
-  color: #ffb21e;
+  color: var(--yellow-clr);
 }
 .row .icon-3 {
-  color: #00bb8f;
+  color: var(--green-clr);
 }
 .row .icon-4 {
-  color: #1125d6;
+  color: var(--blue-clr);
 }
 .summary .row:nth-child(1) {
   background-color: #ff55552e;
 }
 .summary .row:nth-child(2) {
-  background-color: #ffb01e2c;
+  background-color: #ffb01e2e;
 }
 .summary .row:nth-child(3) {
-  background-color: #00bb8f35;
+  background-color: #00bb8f2e;
 }
 .summary .row:nth-child(4) {
-  background-color: #1125d622;
+  background-color: #1125d62e;
 }
 button {
   width: 100%;
@@ -162,7 +171,7 @@ button {
   height: 56px;
   color: var(--white-clr);
   font-size: 18px;
-  font-weight: 700;
+  font-weight: var(--font-weight-700);
   border-radius: 128px;
 }
 button:hover {
