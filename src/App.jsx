@@ -20,25 +20,25 @@ function App() {
             Your performance exceed 65% of the people conducting the test here!
           </p>
         </section>
+
         <section className="summary">
           <h3>Summary</h3>
           <div className="rows flex">
             <div className="row flex">
               <div className="left-cont flex">
                 <img src={image_1} />
-                <b>Reaction</b>
+                <b className="icon-1">Reaction</b>
               </div>
-
               <div className="right-cont">
                 <p>
-                  <b>92</b>/ 100
+                  <b>80</b>/ 100
                 </p>
               </div>
             </div>
             <div className="row flex">
-              <div className="left-cont">
+              <div className="left-cont flex">
                 <img src={image_2} />
-                <b>Memory</b>
+                <b className="icon-2">Memory</b>
               </div>
               <div className="right-cont">
                 <p>
@@ -47,29 +47,29 @@ function App() {
               </div>
             </div>
             <div className="row flex">
-              <div className="left-cont">
+              <div className="left-cont flex">
                 <img src={image_3} />
-                <b>Verbal</b>
+                <b className="icon-3">Verbal</b>
               </div>
               <div className="right-cont">
                 <p>
-                  <b>92</b>/ 100
+                  <b>63</b>/ 100
                 </p>
               </div>
             </div>
             <div className="row flex">
-              <div className="left-cont">
+              <div className="left-cont flex">
                 <img src={image_4} />
-                <b>Visual</b>
+                <b className="icon-4">Visual</b>
               </div>
               <div className="right-cont">
                 <p>
-                  <b>92</b>/ 100
+                  <b>73</b>/ 100
                 </p>
               </div>
             </div>
           </div>
-          <p className="btn">Continue</p>
+          <button className="btn">Continue</button>
         </section>
       </div>
     </>
